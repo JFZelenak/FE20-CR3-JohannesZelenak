@@ -23,7 +23,7 @@
             </tbody>
         </table>
     </div>
-    <div class="col col-12 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+    <div class="col col-12 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mt-auto">
         <h3>Summary</h3>
         <table class="table" *ngIf="total > 0">
             <tr>
@@ -43,5 +43,20 @@
                 <td class="text-align-right">{{ sum | currency  }}</td>
             </tr>
         </table>
+        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+            <table class="table" *ngIf="total > 0">
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><input id="name" type="text" formControlName="name"></td>
+                </tr>
+                <tr>
+                    <td><label for="address">Address:</label></td>
+                    <td><input id="address" type="text" formControlName="address"></td>
+                </tr>
+                <tr class="border-top">
+                    <td colspan="2"><button class="btn btn-success" type="submit">Purchase</button></td>
+                </tr>
+            </table>
+        </form>
     </div>
 </div>
