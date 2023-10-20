@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { DetailsComponent } from './details/details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderComponent } from './order/order.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { OrderComponent } from './order/order.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

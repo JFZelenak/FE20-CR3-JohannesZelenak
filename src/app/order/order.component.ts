@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IDishes } from '../IDishes';
 import { CartService } from '../cart.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-order',
@@ -29,23 +30,23 @@ export class OrderComponent implements OnInit {
       this.clickCounter++;
     } else {
       if(this.info.valid) {
-        alert('Your order has been submitted.');
+        Swal.fire('Thank you! Your order has been submitted. Your food will be prepared and everything will be delivered to you asap.');
         this.items = this.CS.clearCart();
         this.info.reset();
         this.loadSummary();
         this.clickCounter = 0;
       } else {
-        alert('Info invalid! Try again.');
+        Swal.fire('Your info for delivery is not comlete or invalid! Please enter your name and your adress correctly.');
       }
     }
     
   }
 
-  clearCart() {
-    this.items = this.CS.clearCart();
-    alert('Your cart has been cleared.');
-    this.loadSummary();
-  }
+  // clearCart() {
+  //   this.items = this.CS.clearCart();
+  //   Swal.fire('Your cart has been cleared.');
+  //   this.loadSummary();
+  // }
 
   loadSummary() {
     this.items = this.CS.getItems();

@@ -3,6 +3,7 @@ import { IDishes } from '../IDishes';
 import { ActivatedRoute, Params } from '@angular/router';
 import { dishes } from '../dishes';
 import { CartService } from '../cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-details',
@@ -17,7 +18,7 @@ export class DetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private CS: CartService){}
 
   addToCart() {
-    window.alert(`Item added to cart.`);
+    Swal.fire(this.dish.name + " added to cart.");
     this.CS.addToCart(this.dish);
   }
 
