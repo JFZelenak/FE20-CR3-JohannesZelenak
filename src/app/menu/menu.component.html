@@ -1,31 +1,33 @@
 <h2>Menu</h2>
 <div class="d-flex flex-wrap">
     <div *ngFor="let dish of dishes; index as id">
-        <a routerLink="dishes/{{id}}">
-            <div class="myCard">
-                <div>
+        <div class="myCard">
+            <div>
+                <a routerLink="../details/{{ id }}">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>{{ dish.name }}</h4>
                         <div *ngIf="dish.vegetarian == true">
-                            <img src="../../assets/images/symbols/rose-leaf-mi.jpg" alt="vegetarian symbol" class="vegSymbol">
+                            <img src="../../assets/images/symbols/rose-leaf-mi.jpg" alt="vegetarian symbol"
+                                class="vegSymbol">
                         </div>
                     </div>
-                    
+
                     <div class="imgContainer">
                         <img src="../{{ dish.image }}" alt="picture of {{ dish.name }}">
                     </div>
-                </div>
+                </a>
+            </div>
+            <div>
                 <div>
-                    <div>
-                        <p *ngIf="dish.description" class="fs-6 p-0 m-0">{{ dish.description }}</p>
-                        <p class="fs-6 p-0 m-0">Available: {{ dish.available }}</p>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="fs-4">{{ dish.price | currency }}</div>
-                        <div class="btn btn-success">Add to cart</div>
-                    </div>
+                    <p *ngIf="dish.description" class="fs-6 p-0 m-0">{{ dish.description }}</p>
+                    <p class="fs-6 p-0 m-0">Available: {{ dish.available }}</p>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="fs-4">{{ dish.price | currency }}</div>
+                    <div class="btn btn-success">Add to cart</div>
                 </div>
             </div>
-        </a>
+        </div>
     </div>
 </div>

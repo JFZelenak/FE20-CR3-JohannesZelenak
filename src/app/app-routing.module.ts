@@ -11,11 +11,11 @@ const routes: Routes = [
   },{
     path: "menu", component: MenuComponent
   },{
-    path: "dishes/:id", component: DetailsComponent
+    path: "details/:id", component: DetailsComponent
   },{
     path: "about", component: AboutComponent
-  },{
-    path: "**", redirectTo: ""
+  // },{
+  //   path: "**", redirectTo: ""
   }
 ];
 
