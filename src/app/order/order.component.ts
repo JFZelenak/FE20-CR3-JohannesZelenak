@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IDishes } from '../IDishes';
 import { CartService } from '../cart.service';
-import { FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-order',
@@ -15,29 +15,39 @@ export class OrderComponent implements OnInit {
   sum: number = 0;
   discount: number = 0;
 
-  checkoutForm = this.fb.group({
-    name: '',
-    address: '',
+  info = new FormGroup({
+    name: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
   });
 
-  constructor(private CS: CartService, private fb: FormBuilder) {}
+  constructor(private CS: CartService) {}
 
   onSubmit() {
-    alert('Your order has been submitted.');
-    this.items = this.CS.clearCart();
-    this.checkoutForm.reset();
+    if(this.info.valid) {
+      alert('Your order has been submitted.');
+      this.items = this.CS.clearCart();
+      this.info.reset();
+      this.loadSummary();
+    } else {
+      alert('Info invalid! Try again.');
+    }
   }
 
   clearCart() {
-    alert('Your cart has been cleared.');
     this.items = this.CS.clearCart();
+    alert('Your cart has been cleared.');
+    this.loadSummary();
   }
 
-  ngOnInit(): void {
+  loadSummary() {
     this.items = this.CS.getItems();
     this.total = this.CS.calcTotal();
     this.service = this.CS.calcService();
     this.sum = this.CS.calcSum();
     this.discount = this.CS.calcDiscount();
+  }
+
+  ngOnInit(): void {
+    this.loadSummary();
   }
 }

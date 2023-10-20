@@ -25,7 +25,7 @@
     </div>
     <div class="col col-12 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mt-auto">
         <h3>Summary</h3>
-        <table class="table" *ngIf="total > 0">
+        <table class="table" *ngIf="this.total > 0">
             <tr>
                 <td>Items:</td>
                 <td class="text-align-right">{{ total | currency  }}</td>
@@ -43,7 +43,7 @@
                 <td class="text-align-right">{{ sum | currency  }}</td>
             </tr>
         </table>
-        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="info" (ngSubmit)="onSubmit()">
             <table class="table" *ngIf="total > 0">
                 <tr>
                     <td><label for="name">Name:</label></td>
