@@ -46,6 +46,9 @@
         <form [formGroup]="info" (ngSubmit)="onSubmit()">
             <table class="table" *ngIf="total > 0">
                 <tr *ngIf="clickCounter == 1">
+                    <td colspan="2">Please enter info for delivery:</td>
+                </tr>
+                <tr *ngIf="clickCounter == 1">
                     <td><label for="name">Name:</label></td>
                     <td><input id="name" type="text" formControlName="name"></td>
                 </tr>
