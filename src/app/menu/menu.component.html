@@ -1,1 +1,20 @@
-<p>menu works!</p>
+<h2>Menu</h2>
+<div class="d-flex flex-wrap">
+    <div *ngFor="let dish of dishes">
+        <div class="myCard">
+            <div class="imgContainer">
+                <img src="../{{ dish.image }}" alt="picture of {{ dish.name }}">
+            </div>
+            <h4>{{ dish.name }}</h4>
+            <ul>
+                <li>{{ dish.description }}</li>
+                <li>Available: {{ dish.available }}</li>
+                <li>Vegetarian: {{ dish.vegetarian }}</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>{{ dish.price | currency }}</div>
+                <div class="btn btn-success">Add to cart</div>
+            </div>
+        </div>
+    </div>
+</div>

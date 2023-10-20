@@ -8,9 +8,9 @@ const routes: Routes = [
   {
     path: "", component: HomeComponent
   },{
-    path: "/menu", component: MenuComponent
+    path: "menu", component: MenuComponent
   },{
-    path: "/about", component: AboutComponent
+    path: "about", component: AboutComponent
   }
 ];
 
