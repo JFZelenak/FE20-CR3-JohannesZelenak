@@ -24,7 +24,7 @@
         </table>
     </div>
     <div class="col col-12 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mt-auto">
-        <h3>Summary</h3>
+        <h3 *ngIf="this.total > 0">Summary</h3>
         <table class="table" *ngIf="this.total > 0">
             <tr>
                 <td>Items:</td>
