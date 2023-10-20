@@ -1,67 +1,73 @@
-<div class="row">
-    <div class="col col-12 col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-        <h3>Cart <span *ngIf="items.length > 0">- {{ items.length }} item<span *ngIf="items.length > 1">s</span> </span></h3>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th colspan="2">Item</th>
-                    <th>Price</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of items; index as i">
-                    <td class="myCartImage"><img src="{{ item.image }}" alt="picture of {{ item.name }}"></td>
-                    <td>
-                        <div class="fs-5">{{ item.name }}</div>
-                        <div class="fs-6" *ngIf="item.description"><b>Description:</b></div>
-                        <div class="fs-6" *ngIf="item.description">{{ item.description }}</div>
-                    </td>
-                    <td class="priceColumn">
-                        <div class="fs-5">{{ item.price | currency }}</div>
-                    </td>
-                    <td><button (click)="removeFromCart(this.items[i],i)" class="myBtn"><i class="bi bi-bag-dash-fill"></i></button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col col-12 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mt-auto">
-        <h3 *ngIf="this.total > 0">Summary</h3>
-        <table class="table" *ngIf="this.total > 0">
-            <tr>
-                <td>Items:</td>
-                <td class="text-align-right">{{ total | currency }}</td>
-            </tr>
-            <tr>
-                <td>Service:</td>
-                <td class="text-align-right">{{ service | currency }}</td>
-            </tr>
-            <tr *ngIf="this.discount > 0">
-                <td>Discount - 15%:</td>
-                <td class="text-align-right">-{{ discount | currency }}</td>
-            </tr>
-            <tr class="border-top">
-                <td>Total including VAT:</td>
-                <td class="text-align-right">{{ sum | currency }}</td>
-            </tr>
-        </table>
-        <form [formGroup]="info" (ngSubmit)="onSubmit()">
-            <table class="table" *ngIf="total > 0">
-                <tr *ngIf="clickCounter == 1">
-                    <td colspan="2">Please enter info for delivery:</td>
-                </tr>
-                <tr *ngIf="clickCounter == 1">
-                    <td><label for="name">Name:</label></td>
-                    <td><input id="name" type="text" formControlName="name"></td>
-                </tr>
-                <tr *ngIf="clickCounter == 1" class="border-bottom">
-                    <td><label for="address">Address:</label></td>
-                    <td><input id="address" type="text" formControlName="address" class="mb-2"></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button class="btn btn-success mt-2" type="submit">Purchase</button></td>
-                </tr>
-            </table>
-        </form>
+<div class="containerFull">
+    <div class="container pt-3">
+        <div class="row">
+            <div class="col col-12 col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
+                <h3>Cart <span *ngIf="items.length > 0">- {{ items.length }} item<span *ngIf="items.length > 1">s</span>
+                    </span></h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Item</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of items; index as i">
+                            <td class="myCartImage"><img src="{{ item.image }}" alt="picture of {{ item.name }}"></td>
+                            <td>
+                                <div class="fs-5">{{ item.name }}</div>
+                                <div class="fs-6" *ngIf="item.description"><b>Description:</b></div>
+                                <div class="fs-6" *ngIf="item.description">{{ item.description }}</div>
+                            </td>
+                            <td class="priceColumn">
+                                <div class="fs-5">{{ item.price | currency }}</div>
+                            </td>
+                            <td><button (click)="removeFromCart(this.items[i],i)" class="myBtn"><i
+                                        class="bi bi-bag-dash-fill"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col col-12 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mt-auto">
+                <h3 *ngIf="this.total > 0">Summary</h3>
+                <table class="table" *ngIf="this.total > 0" id="summaryTable">
+                    <tr>
+                        <td>Items:</td>
+                        <td class="text-align-right">{{ total | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td>Service:</td>
+                        <td class="text-align-right">{{ service | currency }}</td>
+                    </tr>
+                    <tr *ngIf="this.discount > 0">
+                        <td>Discount - 15%:</td>
+                        <td class="text-align-right">-{{ discount | currency }}</td>
+                    </tr>
+                    <tr class="border-top">
+                        <td>Total including VAT:</td>
+                        <td class="text-align-right">{{ sum | currency }}</td>
+                    </tr>
+                </table>
+                <form [formGroup]="info" (ngSubmit)="onSubmit()">
+                    <table class="table" *ngIf="total > 0">
+                        <tr *ngIf="clickCounter == 1">
+                            <td colspan="2">Please enter info for delivery:</td>
+                        </tr>
+                        <tr *ngIf="clickCounter == 1">
+                            <td><label for="name">Name:</label></td>
+                            <td><input id="name" type="text" formControlName="name"></td>
+                        </tr>
+                        <tr *ngIf="clickCounter == 1" class="border-bottom">
+                            <td><label for="address">Address:</label></td>
+                            <td><input id="address" type="text" formControlName="address" class="mb-2"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button class="btn btn-success mt-2" type="submit">Purchase</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

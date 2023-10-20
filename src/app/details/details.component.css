@@ -1,14 +1,25 @@
 .imgContainer {
     max-width: 500px;
+    padding: 5px;
+    border-radius: 0px 15px 15px 15px;
+    box-shadow: 0px 0px 7px black;
+    background-color: white;
 }
 .imgContainer img {
     width: 100%;
     border-radius: 0px 10px 10px 10px;
-    box-shadow: 0px 0px 7px gray;
 }
 .myDescription {
     max-width: 300px;
 }
 .vegSymbol {
     width: 35px;
+}
+.containerFull {
+    background-color: white;
+    background-image: url("../../assets/images/closeup/closeup-pizza3.jpg");
+    background-size: cover;
+}
+h2, .detailsContainer {
+    color: white;
 }

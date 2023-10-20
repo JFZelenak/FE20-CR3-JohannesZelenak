@@ -26,7 +26,7 @@ a {
 .textContainer {
     text-align: right;
 }
-#routerOutletContainerFull {
+.containerFull {
     background-color: white;
     background-image: url("../../assets/images/closeup/closeup-pizza3.jpg");
     background-size: cover;
