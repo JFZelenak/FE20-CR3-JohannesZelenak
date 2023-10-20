@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col col-9">
+    <div class="col col-12 col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
         <h3>Cart <span *ngIf="items.length > 0">- {{ items.length }} item<span *ngIf="items.length > 1">s</span> </span></h3>
         <table class="table">
             <thead>
@@ -9,22 +9,35 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="cart-item" *ngFor="let item of items; index as i">
+                <tr *ngFor="let item of items; index as i">
                     <td class="myCartImage"><img src="{{ item.image }}" alt="picture of {{ item.name }}"></td>
                     <td>
                         <div class="fs-5">{{ item.name }}</div>
                         <div class="fs-6" *ngIf="item.description"><b>Description:</b></div>
                         <div class="fs-6" *ngIf="item.description">{{ item.description }}</div>
                     </td>
-                    <td>
+                    <td class="priceColumn">
                         <div class="fs-5">{{ item.price | currency }}</div>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <div class="col col-3">
+    <div class="col col-12 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
         <h3>Summary</h3>
-
+        <table class="table" *ngIf="total > 0">
+            <tr>
+                <td>Items</td>
+                <td>{{ total }}</td>
+            </tr>
+            <tr class="border-bottom">
+                <td>Service</td>
+                <td>{{ service }}</td>
+            </tr>
+            <tr>
+                <td>Sum</td>
+                <td>{{ sum }}</td>
+            </tr>
+        </table>
     </div>
 </div>

@@ -9,10 +9,14 @@ import { CartService } from '../cart.service';
 })
 export class CartComponent implements OnInit {
   items: IDishes[] = [];
+  total: number = 0;
+  service: number = 0;
+  sum: number = 0;
 
   constructor(private CS: CartService) {}
 
   ngOnInit(): void {
-    this.items = this.CS.getItems();  
+    this.items = this.CS.getItems();
+    this.total = this.CS.calcTotal();
   }
 }

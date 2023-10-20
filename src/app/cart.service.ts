@@ -21,4 +21,13 @@ export class CartService {
     this.items=[];
     return this.items;
   }
+
+  calcTotal(){
+    let total : number = 0;
+
+    this.items.forEach((val) => {
+      total += val.price;
+    })
+    return total;
+  }
 }
