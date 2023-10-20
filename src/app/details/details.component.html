@@ -1,1 +1,30 @@
-<p>details works!</p>
+<div class="conatiner mt-3">
+    <div class="row row-cols-1 row-cols-xs-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2">
+        <div class="d-flex justify-content-left align-items-center">
+            <h2>{{ dish.name }}</h2>
+            <div *ngIf="dish.vegetarian == true">
+                <img src="../../assets/images/symbols/rose-leaf-mi.jpg" alt="vegetarian symbol" class="vegSymbol ms-3">
+            </div>
+        </div>
+        <div></div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-xs-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2">
+        <div>
+            <div class="imgContainer">
+                <img src="../{{ dish.image }}" alt="picture of {{ dish.name }}">
+            </div>
+        </div>
+        <div>
+            <div>
+                <p *ngIf="dish.description" class="fs-6 p-0 m-0"><b>Description:</b></p>
+                <div *ngIf="dish.description" class="fs-6 p-0 m-0 mb-3 myDescription">{{ dish.description }}</div>
+                <p class="fs-6 p-0 m-0">Available: {{ dish.available }}</p>
+                <p *ngIf="dish.description" class="fs-6 p-0 m-0"><b>Price:</b></p>
+                <p class="fs-4">{{ dish.price | currency }}</p>
+                <div class="btn btn-success">Add to cart</div>
+            </div>
+        </div>
+    </div>
+    
+</div>
