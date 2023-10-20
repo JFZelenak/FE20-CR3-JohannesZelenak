@@ -28,19 +28,19 @@
         <table class="table" *ngIf="this.total > 0">
             <tr>
                 <td>Items:</td>
-                <td class="text-align-right">{{ total | currency  }}</td>
+                <td class="text-align-right">{{ total | currency }}</td>
             </tr>
             <tr>
                 <td>Service:</td>
-                <td class="text-align-right">{{ service | currency  }}</td>
+                <td class="text-align-right">{{ service | currency }}</td>
             </tr>
             <tr *ngIf="this.discount > 0">
                 <td>Discount - 15%:</td>
-                <td class="text-align-right">-{{ discount | currency  }}</td>
+                <td class="text-align-right">-{{ discount | currency }}</td>
             </tr>
             <tr class="border-top">
-                <td>Sum:</td>
-                <td class="text-align-right">{{ sum | currency  }}</td>
+                <td>Total including VAT:</td>
+                <td class="text-align-right">{{ sum | currency }}</td>
             </tr>
         </table>
         <form [formGroup]="info" (ngSubmit)="onSubmit()">
@@ -52,12 +52,12 @@
                     <td><label for="name">Name:</label></td>
                     <td><input id="name" type="text" formControlName="name"></td>
                 </tr>
-                <tr *ngIf="clickCounter == 1">
+                <tr *ngIf="clickCounter == 1" class="border-bottom">
                     <td><label for="address">Address:</label></td>
-                    <td><input id="address" type="text" formControlName="address"></td>
+                    <td><input id="address" type="text" formControlName="address" class="mb-2"></td>
                 </tr>
-                <tr class="border-top">
-                    <td colspan="2"><button class="btn btn-success" type="submit">Purchase</button></td>
+                <tr>
+                    <td colspan="2"><button class="btn btn-success mt-2" type="submit">Purchase</button></td>
                 </tr>
             </table>
         </form>
