@@ -9,7 +9,7 @@ export const dishes = [
     },{
         name: "Pasta Pomodoro",
         image: "./assets/images/dishes/pasta-pomodoro.jpg",
-        description: "our finest homemade pasta with our homemade tomato sauce",
+        // description: "our finest homemade pasta with our homemade tomato sauce",
         price: 10,
         available: true,
         vegetarian: true  
