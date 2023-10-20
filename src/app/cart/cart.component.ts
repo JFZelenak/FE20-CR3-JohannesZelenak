@@ -12,6 +12,7 @@ export class CartComponent implements OnInit {
   total: number = 0;
   service: number = 0;
   sum: number = 0;
+  discount: number = 0;
 
   constructor(private CS: CartService) {}
 
@@ -20,5 +21,6 @@ export class CartComponent implements OnInit {
     this.total = this.CS.calcTotal();
     this.service = this.CS.calcService();
     this.sum = this.CS.calcSum();
+    this.discount = this.CS.calcDiscount();
   }
 }

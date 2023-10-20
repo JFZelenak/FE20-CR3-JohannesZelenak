@@ -8,6 +8,7 @@ export class CartService {
   items: IDishes[] = [];
   total : number = 0;
   service : number = 0;
+  discountValue : number = 0;
 
   constructor() { }
 
@@ -25,6 +26,7 @@ export class CartService {
   }
 
   calcTotal(){
+    this.total = 0;
     this.items.forEach((val) => {
       this.total += val.price;
     })
@@ -36,19 +38,31 @@ export class CartService {
     return this.service;
   }
 
-  calcSum(){
-    let sum : number = 0;
-    let discount : number = 0;
+  calcDiscount(){
+    let discount : number = 1;
 
-    if(sum >= 40) {
-      discount = 15;
+    if(this.total >= 40) {
+      discount = 0.15;
+    } else {
+      discount = 0;
     }
 
-    sum = (this.total + this.service) * ((100 - discount)/100);
-    // 
-    console.log(this.total);
-    console.log(this.service);
-    console.log(sum);
+    this.discountValue = (this.total + this.service) * discount;
+
+    return this.discountValue;
+  }
+
+  calcSum(){
+    let sum : number = 0;
+
+    this.calcDiscount();
+    console.log("Total: " + this.total);
+    console.log("Service: " + this.service);
+    console.log("Discount Value: " + this.discountValue);
+    
+    sum = (this.total + this.service) - this.discountValue;
+    console.log("Sum: " + sum);
+
     return sum;
   }
 }

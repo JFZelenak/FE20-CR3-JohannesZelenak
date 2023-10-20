@@ -27,16 +27,20 @@
         <h3>Summary</h3>
         <table class="table" *ngIf="total > 0">
             <tr>
-                <td>Items</td>
-                <td>{{ total }}</td>
-            </tr>
-            <tr class="border-bottom">
-                <td>Service</td>
-                <td>{{ service }}</td>
+                <td>Items:</td>
+                <td class="text-align-right">{{ total | currency  }}</td>
             </tr>
             <tr>
-                <td>Sum</td>
-                <td>{{ sum }}</td>
+                <td>Service:</td>
+                <td class="text-align-right">{{ service | currency  }}</td>
+            </tr>
+            <tr *ngIf="this.discount > 0">
+                <td>Discount - 15%:</td>
+                <td class="text-align-right">-{{ discount | currency  }}</td>
+            </tr>
+            <tr class="border-top">
+                <td>Sum:</td>
+                <td class="text-align-right">{{ sum | currency  }}</td>
             </tr>
         </table>
     </div>
