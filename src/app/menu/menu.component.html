@@ -26,7 +26,7 @@
 
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="fs-4">{{ dish.price | currency }}</div>
-                        <div *ngIf="dish.available==true" class="btn btn-success" (click)="addToCart(id)">Add to cart</div>
+                        <div *ngIf="dish.available==true" class="btn btn-outline-success" (click)="addToCart(id)">Add to cart</div>
                         <div *ngIf="dish.available==false" class="btn btn-outline-danger">not available</div>
                 </div>
             </div>
