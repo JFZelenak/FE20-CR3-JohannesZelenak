@@ -11,3 +11,11 @@
 .text-align-right {
     text-align: right;
 }
+.myBtn i {
+    font-size: 20px;
+    color: red;
+}
+.myBtn {
+    background-color: white;
+    border: none;
+}

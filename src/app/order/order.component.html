@@ -20,7 +20,7 @@
                     <td class="priceColumn">
                         <div class="fs-5">{{ item.price | currency }}</div>
                     </td>
-                    <td><button (click)="removeFromCart(this.items[i],i)"><i class="bi bi-bag-dash-fill"></i></button></td>
+                    <td><button (click)="removeFromCart(this.items[i],i)" class="myBtn"><i class="bi bi-bag-dash-fill"></i></button></td>
                 </tr>
             </tbody>
         </table>
