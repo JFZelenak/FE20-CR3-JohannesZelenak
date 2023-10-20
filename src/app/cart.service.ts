@@ -48,21 +48,13 @@ export class CartService {
     }
 
     this.discountValue = (this.total + this.service) * discount;
-
     return this.discountValue;
   }
 
   calcSum(){
     let sum : number = 0;
-
     this.calcDiscount();
-    console.log("Total: " + this.total);
-    console.log("Service: " + this.service);
-    console.log("Discount Value: " + this.discountValue);
-    
     sum = (this.total + this.service) - this.discountValue;
-    console.log("Sum: " + sum);
-
     return sum;
   }
 }
