@@ -18,7 +18,7 @@ export const dishes = [
         image: "./assets/images/dishes/pasta-spinaci.jpg",
         description: "our finest homemade pasta with a fine homemade spinach pesto with spinach from our garden",
         price: 10,
-        available: true,
+        available: false,
         vegetarian: true  
     },{
         name: "Pasta Vegetariana",

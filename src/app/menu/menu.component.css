@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 300px;
-    height: 530px;
+    height: 510px;
     padding: 10px;
     margin-right: 20px;
     margin-bottom: 20px;
@@ -21,4 +21,7 @@ a {
 }
 .vegSymbol {
     width: 35px;
+}
+.textContainer {
+    text-align: right;
 }

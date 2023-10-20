@@ -3,29 +3,31 @@
     <div *ngFor="let dish of dishes; index as id">
         <div class="myCard">
             <div>
-                <a routerLink="../details/{{ id }}">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h4>{{ dish.name }}</h4>
-                        <div *ngIf="dish.vegetarian == true">
-                            <img src="../../assets/images/symbols/rose-leaf-mi.jpg" alt="vegetarian symbol"
-                                class="vegSymbol">
-                        </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4>{{ dish.name }}</h4>
+                    <div *ngIf="dish.vegetarian == true">
+                        <img src="../../assets/images/symbols/rose-leaf-mi.jpg" alt="vegetarian symbol"
+                            class="vegSymbol">
                     </div>
+                </div>
 
-                    <div class="imgContainer">
-                        <img src="../{{ dish.image }}" alt="picture of {{ dish.name }}">
-                    </div>
-                </a>
+                <div class="imgContainer">
+                    <img src="../{{ dish.image }}" alt="picture of {{ dish.name }}">
+                </div>
+
+                <div *ngIf="dish.available==true" class="textContainer">
+                    <button routerLink="../details/{{ id }}" class="btn btn-outline-dark mt-2">Details</button>
+                </div>
             </div>
             <div>
                 <div>
                     <p *ngIf="dish.description" class="fs-6 p-0 m-0">{{ dish.description }}</p>
-                    <p class="fs-6 p-0 m-0">Available: {{ dish.available }}</p>
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="fs-4">{{ dish.price | currency }}</div>
-                    <div class="btn btn-success">Add to cart</div>
+                        <div *ngIf="dish.available==true" class="btn btn-success">Add to cart</div>
+                        <div *ngIf="dish.available==false" class="btn btn-outline-danger">not available</div>
                 </div>
             </div>
         </div>
