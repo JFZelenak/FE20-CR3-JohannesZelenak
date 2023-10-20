@@ -14,6 +14,7 @@ export class OrderComponent implements OnInit {
   service: number = 0;
   sum: number = 0;
   discount: number = 0;
+  clickCounter: number = 0;
 
   info = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -23,14 +24,21 @@ export class OrderComponent implements OnInit {
   constructor(private CS: CartService) {}
 
   onSubmit() {
-    if(this.info.valid) {
-      alert('Your order has been submitted.');
-      this.items = this.CS.clearCart();
-      this.info.reset();
-      this.loadSummary();
+    
+    if(this.clickCounter == 0) {
+      this.clickCounter++;
     } else {
-      alert('Info invalid! Try again.');
+      if(this.info.valid) {
+        alert('Your order has been submitted.');
+        this.items = this.CS.clearCart();
+        this.info.reset();
+        this.loadSummary();
+        this.clickCounter = 0;
+      } else {
+        alert('Info invalid! Try again.');
+      }
     }
+    
   }
 
   clearCart() {

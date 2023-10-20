@@ -45,11 +45,11 @@
         </table>
         <form [formGroup]="info" (ngSubmit)="onSubmit()">
             <table class="table" *ngIf="total > 0">
-                <tr>
+                <tr *ngIf="clickCounter == 1">
                     <td><label for="name">Name:</label></td>
                     <td><input id="name" type="text" formControlName="name"></td>
                 </tr>
-                <tr>
+                <tr *ngIf="clickCounter == 1">
                     <td><label for="address">Address:</label></td>
                     <td><input id="address" type="text" formControlName="address"></td>
                 </tr>
