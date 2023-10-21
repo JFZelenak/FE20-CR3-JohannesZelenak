@@ -16,8 +16,20 @@ export class MenuComponent implements OnInit {
   constructor(private CS: CartService){}
 
   addToCart(id : number){
-    Swal.fire(dishes[id].name + " added to cart.");
+    Swal.fire({
+      icon: 'success',
+      title: dishes[id].name,
+      text: 'added to your cart.'
+    });
     this.CS.addToCart(this.dishes[id]);
+  }
+
+  notAvailable(id : number) {
+    Swal.fire({
+      icon: 'error',
+      title: dishes[id].name,
+      text: 'is not available at the moment.'
+    });
   }
 
   ngOnInit(): void {}
