@@ -18,7 +18,11 @@ export class DetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private CS: CartService){}
 
   addToCart() {
-    Swal.fire(this.dish.name + " added to cart.");
+    Swal.fire({
+      icon: 'success',
+      title: this.dish.name,
+      text: 'added to your cart.'
+    });
     this.CS.addToCart(this.dish);
   }
 

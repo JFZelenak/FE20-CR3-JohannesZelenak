@@ -42,26 +42,28 @@ export class OrderComponent implements OnInit {
     
   }
 
-  // clearCart() {
-  //   this.items = this.CS.clearCart();
-  //   Swal.fire('Your cart has been cleared.');
-  //   this.loadSummary();
-  // }
-
   removeFromCart(item: IDishes, id: number) {
     Swal.fire({
-      title: `Do you really wish to remove '${item.name}' from your cart?`,
+      icon: 'question',
+      title: `Do you really wish to remove ${item.name} from your cart?`,
       showDenyButton: true,
-      showCancelButton: false,
       confirmButtonText: 'Yes',
       denyButtonText: `No`,
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(`${item.name} removed from cart`);
+        Swal.fire({
+          icon: 'warning',
+          title: item.name,
+          text: 'removed from your cart.'
+        });
         this.items.splice(id, 1);
         this.loadSummary();
       } else if (result.isDenied) {
-        Swal.fire(`${item.name} not removed from cart`);
+        Swal.fire({
+          icon: 'warning',
+          title: item.name,
+          text: 'not removed from your cart.'
+        });
       }
     })
   }
