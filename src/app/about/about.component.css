@@ -1,0 +1,12 @@
+.b-example-divider {
+    width: 100%;
+    height: 1rem;
+}
+.handwriting {
+    font-family: 'Great Vibes', cursive;
+}
+.heroBg {
+    background-image: url("../../assets/images/closeup/closeup-pizza3.jpg");
+    background-size: cover;
+    margin-top: 0px;
+}
