@@ -9,12 +9,14 @@ import { OrderComponent } from './order/order.component';
 const routes: Routes = [
   {
     path: "", component: HomeComponent
-  // },{
-  //   path: "home", component: HomeComponent
+  },{
+    path: "home", component: HomeComponent
   },{
     path: "menu", component: MenuComponent
   },{
     path: "details/:id", component: DetailsComponent
+  },{
+    path: "home/details/:id", component: DetailsComponent
   },{
     path: "cart", component: OrderComponent
   },{
